@@ -8,6 +8,7 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
+guests = []
 
 @app.route('/', methods=['GET'])
 def verify():
