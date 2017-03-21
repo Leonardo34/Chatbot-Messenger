@@ -3,7 +3,7 @@ import sys
 import json
 import requests
 
-from facebookApi import send_message
+import facebookApi
 from flask import Flask, request
 
 app = Flask(__name__)
@@ -55,4 +55,5 @@ def log(message):
 
 
 if __name__ == '__main__':
+    from facebookApi import send_message
     app.run(debug=True)
