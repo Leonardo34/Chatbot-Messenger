@@ -34,9 +34,11 @@ def webhook():
 
                     sender_id = messaging_event["sender"]["id"] 
                     recipient_id = messaging_event["recipient"]["id"]  
-                    message_text = messaging_event["message"]["text"]  
+                    message_text = messaging_event["message"]["text"]
 
-                    send_message(sender_id, "got it, thanks!")
+                    response = parse_message(message_text)  
+
+                    send_message(sender_id, response)
 
                 if messaging_event.get("delivery"):
                     pass
@@ -53,6 +55,11 @@ def webhook():
 def log(message):
     print str(message)
     sys.stdout.flush()
+
+def parse_message(message_text):
+    if message_text[:5] == "#nome"
+        return "Nome Cadastrado"
+    return "Desculpa, não entendi"      
 
 
 if __name__ == '__main__':

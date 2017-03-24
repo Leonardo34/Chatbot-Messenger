@@ -17,4 +17,7 @@ class Guest:
     def set_optin(self, optin):
         self.optin = optin
 
+    def __eq__(self, object):
+        return self.id == object.id    
+
 	
