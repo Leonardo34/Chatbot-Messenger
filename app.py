@@ -36,7 +36,7 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  
                     message_text = messaging_event["message"]["text"]
 
-                    response = parse_message(message_text)  
+                    response = parse_message(message_text, sender_id)  
 
                     send_message(sender_id, response)
 
@@ -56,7 +56,8 @@ def log(message):
     print str(message)
     sys.stdout.flush()
 
-def parse_message(message_text):
+
+def parse_message(message_text, sender_id):
     if message_text[:5] == "#nome"
         return "Nome Cadastrado"
     return "Desculpa, não entendi"      
