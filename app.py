@@ -58,9 +58,9 @@ def log(message):
 
 
 def parse_message(message_text, sender_id):
-    if message_text[:5] == "#nome"
+    if message_text[:5] == "#nome":
         return "Nome Cadastrado"
-    return "Desculpa, não entendi"      
+    return "Desculpa, nao entendi"      
 
 
 if __name__ == '__main__':
