@@ -3,8 +3,10 @@ import sys
 import json
 import requests
 
+import model
 import facebookApi
 from flask import Flask, request
+
 
 app = Flask(__name__)
 
@@ -60,9 +62,24 @@ def log(message):
 def parse_message(message_text, sender_id):
     if message_text[:5] == "#nome":
         return "Nome Cadastrado"
-    return "Desculpa, nao entendi"      
+    if message_text[:6] == "#email":
+        return "Email Cadastrado"
+    if message_text[:9] == "#telefone":
+        return "Telefone Cadastrado"
+                
+    return "Desculpa, nao entendi"
+
+def find_guest(sender_id):
+    for guest in guests:
+        if guest.id == sender_id:
+            return guest
+
+    new_guest = Guest(sender_id)
+    guests.append(new_guest)
+    return new_guest                   
 
 
 if __name__ == '__main__':
     from facebookApi import send_message
+    from model import Guest
     app.run(debug=True)
