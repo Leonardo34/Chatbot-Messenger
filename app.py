@@ -69,6 +69,7 @@ def parse_message(message_text, sender_id):
                 
     return "Desculpa, nao entendi"
 
+
 def find_guest(sender_id):
     for guest in guests:
         if guest.id == sender_id:
