@@ -17,6 +17,12 @@ class Guest:
     def set_optin(self, optin):
         self.optin = optin
 
+    def set_childrens(self, childrens):
+        self.childrens = childrens
+
+    def set_adults(self, adults):
+        self.adults = adults        
+
     def __eq__(self, object):
         return self.id == object.id    
 
