@@ -3,18 +3,18 @@ import sys
 import json
 import requests
 
-def confirm_guest(guest):
+def confirm_guest(guest, status, event_id):
     
     params = {
-        "name":
-        "last_name":
-        "email":
-        "phone":
-        "optin":
-        "rsvps[][event_id]":
-        "rsvps[][adults]":
-        "rsvps[][children]":
-        "rsvps[][status]": 
+        "name": guest.name
+        "last_name": guest.last_name
+        "email": guest.email
+        "phone": guest.phone
+        "optin": guest.optin
+        "rsvps[][event_id]": event_id
+        "rsvps[][adults]": guest.adults
+        "rsvps[][children]": guest.childrens
+        "rsvps[][status]": status
     }
     headers = {
         "Content-Type": "application/x-www-form-urlencoded"

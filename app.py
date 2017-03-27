@@ -9,8 +9,9 @@ from flask import Flask, request
 
 
 app = Flask(__name__)
-
+event_id = "teste"
 guests = []
+
 
 @app.route('/', methods=['GET'])
 def verify():
@@ -80,7 +81,21 @@ def parse_message(message_text, sender_id):
         guest.set_phone(message_text[10:-1])
         print guest.name
         return "Telefone Cadastrado"
-                
+
+    if message_text[:9] == "#crianças":  
+        guest.set_childrens(message_text[10:-1])
+        return "Suas crianças foram confirmadas :)"
+
+    if message_text[:8] == "#adultos":
+        guest.set_adults(message_text[9:-1])
+        return "Voce confirmou a presença de {} adultos".format(guest.adults)
+
+    if message_text[:6] == "#euvou":
+        confirm_guest(guest, "attend", event_id)
+
+    if message_text[:7] == "#naovou":
+        confirm_guest(guest, "not_attend", event_id)               
+
     return "Desculpa, nao entendi"
 
 
@@ -97,4 +112,5 @@ def find_guest(sender_id):
 if __name__ == '__main__':
     from facebookApi import send_message
     from model import Guest
+    from mecaseiApi import confirm_guest
     app.run(debug=True)
