@@ -61,9 +61,18 @@ def log(message):
 
 def parse_message(message_text, sender_id):
     if message_text[:5] == "#nome":
+        guest = find_guest(sender_id)
+        names = message_text.split(" ")
+        first_name = names[1]
+        last_name = names[2]
+        guest.set_name(first_name)
+        guest.set_last_name(last_name)
+        print guest.name
         return "Nome Cadastrado"
+
     if message_text[:6] == "#email":
         return "Email Cadastrado"
+        
     if message_text[:9] == "#telefone":
         return "Telefone Cadastrado"
                 
