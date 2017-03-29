@@ -92,9 +92,11 @@ def parse_message(message_text, sender_id):
 
     if message_text[:6] == "#euvou":
         confirm_guest(guest, "attend", EVENT_ID)
+        return "Sua presença foi confirmada"
 
     if message_text[:7] == "#naovou":
-        confirm_guest(guest, "not_attend", EVENT_ID)               
+        confirm_guest(guest, "not_attend", EVENT_ID)
+        return "Sua não presença foi confirmada"               
 
     return "Ola, voce pode confirmar suas informaçoes atraves das hashtags #nome, #telefone, #email, #crianças e #adultos. Para confirmar presença ou rejeitar, diga #euvou ou #naovou"
 
