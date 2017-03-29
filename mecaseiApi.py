@@ -23,3 +23,19 @@ def confirm_guest(guest, status, event_id):
         "Cache-Control": "no-cache"
     } 	
     r = requests.post("http://staging.mecasei.com/api/v2/wedding/51751/guests", params=params, headers=headers)
+
+
+def create_event():
+    
+    params = {
+        "name": "Meu casamento"
+        "on": "12/12/2017"
+        "addres": "Rua teste"
+        "spots_reserved": "3"
+    headers = {
+        "Content-Type": "application/x-www-form-urlencoded"
+        "X-User-Email": "leo_broch@hotmail.com"
+        "X-User-Token": "ZB57obeHEyEkGW7fu2da"
+        "Cache-Control": "no-cache"
+    }   
+    r = requests.post("http://staging.mecasei.com/api/v2/wedding/51751/events", params=params, headers=headers)    

@@ -9,7 +9,7 @@ from flask import Flask, request
 
 
 app = Flask(__name__)
-event_id = "teste"
+EVENT_ID = "teste"
 guests = []
 
 
@@ -91,12 +91,12 @@ def parse_message(message_text, sender_id):
         return "Voce confirmou a presença de {} adultos".format(guest.adults)
 
     if message_text[:6] == "#euvou":
-        confirm_guest(guest, "attend", event_id)
+        confirm_guest(guest, "attend", EVENT_ID)
 
     if message_text[:7] == "#naovou":
-        confirm_guest(guest, "not_attend", event_id)               
+        confirm_guest(guest, "not_attend", EVENT_ID)               
 
-    return "Desculpa, nao entendi"
+    return "Ola, voce pode confirmar suas informaçoes atraves das hashtags #nome, #telefone, #email, #crianças e #adultos. Para confirmar presença ou rejeitar, diga #euvou ou #naovou"
 
 
 def find_guest(sender_id):
