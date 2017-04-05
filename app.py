@@ -84,21 +84,21 @@ def parse_message(message_text, sender_id):
 
     if message_text[:9] == "#crianças":  
         guest.set_childrens(message_text[10:-1])
-        return "Suas crianças foram confirmadas :)"
+        return "Suas criancas foram confirmadas :)"
 
     if message_text[:8] == "#adultos":
         guest.set_adults(message_text[9:-1])
-        return "Voce confirmou a presença de {} adultos".format(guest.adults)
+        return "Voce confirmou a presenca de {} adultos".format(guest.adults)
 
     if message_text[:6] == "#euvou":
         confirm_guest(guest, "attend", EVENT_ID)
-        return "Sua presença foi confirmada"
+        return "Sua presenca foi confirmada"
 
     if message_text[:7] == "#naovou":
         confirm_guest(guest, "not_attend", EVENT_ID)
-        return "Sua não presença foi confirmada"               
+        return "Sua nao presenca foi confirmada"               
 
-    return "Ola, voce pode confirmar suas informaçoes atraves das hashtags #nome, #telefone, #email, #crianças e #adultos. Para confirmar presença ou rejeitar, diga #euvou ou #naovou"
+    return "Ola, voce pode confirmar suas informacoes atraves das hashtags #nome, #telefone, #email, #crianças e #adultos. Para confirmar presenca ou rejeitar, diga #euvou ou #naovou"
 
 
 def find_guest(sender_id):
